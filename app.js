@@ -63,3 +63,34 @@ const myMappedTodos = myMap(todos, function (todo) {
 const repeatedStrings = myMap(['a', 'b', 'c', 'd'], function (str, i) {
     return str.repeat(i);
 });
+
+//filter
+const words = [
+    'hello',
+    'me',
+    'jargin',
+    'hklj',
+    'sdfvlk',
+    'yummy'
+]
+
+const highPriority = todos.filter(function (todo) {
+    return todo.priority === 'High';
+
+})
+
+const containsVowel = function (word) {
+    for (char of word) {
+        if (isVowel(char)) return true;
+    }
+    return false;
+}
+
+const isVowel = function (char) {
+    return 'aeiou'.indexOf(char) !== -1;
+}
+
+const containVowels = words.filter(containsVowel);
+const noVowels = words.filter(function (word) {
+    return !containsVowel(word);
+})
