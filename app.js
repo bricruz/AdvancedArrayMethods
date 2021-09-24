@@ -94,3 +94,26 @@ const containVowels = words.filter(containsVowel);
 const noVowels = words.filter(function (word) {
     return !containsVowel(word);
 })
+
+//filter and map
+const allCheckBoxes = document.querySelectorAll('input[type="checkbox"');
+
+
+const checked = Array.from(allCheckBoxes).filter(function (box) {
+    return box.checked;
+})
+
+const checkedText = checked.map(function (todo) {
+    return todo.parentElement.innerText;
+})
+//chained map and filter function
+function extractCompletedTodos() {
+    const allCheckBoxes = document.querySelectorAll('input[type="checkbox"');
+    return Array.from(allCheckBoxes)
+        .filter(function (box) {
+            return box.checked;
+        })
+        .map(function (todo) {
+            return todo.parentElement.innerText;
+        });
+}
