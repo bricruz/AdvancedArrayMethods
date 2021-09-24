@@ -42,3 +42,24 @@ const links = Array.from(document.querySelectorAll('a'));
 const urls = links.map(function (a) {
     return a.href;
 })
+
+function myMap(arr, func) {
+    const newArr = [];
+    for (val of arr) {
+        newArr.push(func(val, arr.indexOf(val), arr));
+
+    }
+    return newArr;
+}
+
+const colorsUP = myMap(colors, function (color) {
+    return color.toUpperCase();
+})
+
+const myMappedTodos = myMap(todos, function (todo) {
+    return todo.priority;
+})
+
+const repeatedStrings = myMap(['a', 'b', 'c', 'd'], function (str, i) {
+    return str.repeat(i);
+});
